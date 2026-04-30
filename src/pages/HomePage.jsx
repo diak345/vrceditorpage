@@ -22,17 +22,6 @@ function HomePage() {
         ))}
       </ul>
 
-      <h3 className="subhead">このドキュメントで扱う範囲</h3>
-      <ul>
-        {overview.handledItems.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
-
-      <p className="notice">
-        FX Animator の Layer / State / Transition Condition と AnimationClip 参照は、このドキュメントでは扱いません。
-      </p>
-
       <figure className="media-frame">
         <img src={toPublicUrl(overviewImage.file)} alt={overviewImage.alt} loading="lazy" />
         <figcaption>Unity メニューから統合エディタ/Preview にアクセスできます。</figcaption>

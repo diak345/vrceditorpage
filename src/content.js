@@ -8,12 +8,6 @@ export const overview = {
     '`Tools/VRChat/統合ノードエディタ (Phase 1)`',
     '`Tools/VRChat/Expression Menu Preview`',
   ],
-  handledItems: [
-    'Expression Menu 階層',
-    'Expression Parameters 一覧',
-    '警告・注意項目',
-    'Menu 編集パネル',
-  ],
 }
 
 export const nodeEditor = {
@@ -97,12 +91,13 @@ export const warnings = {
 export const requirements = {
   prerequisites: [
     'VRChat SDK3 Avatars が導入されていること',
-    '必要な主な型: `VRCAvatarDescriptor` / `VRCExpressionsMenu` / `VRCExpressionParameters`',
+    'VRC SDK3のみ対応 VRC2は非対応です。',
     '対象 Avatar に `Avatar Descriptor` が設定されていること',
     '対象 Avatar に `Expression Menu` が設定されていること',
     '対象 Avatar に `Expression Parameters` が設定されていること',
   ],
   unsupported: [
+    'Modular Avatarは非対応',
     'FX Animator 解析',
     'FX Animator の Layer / State / Transition Condition の取り扱い',
     'AnimationClip 参照の取り扱い',
@@ -110,15 +105,11 @@ export const requirements = {
     'Animator State / Transition の編集',
     'AnimationClip の内容解析',
     'Expression Menu / Parameters の完全な自動修復',
-    'Modular Avatar 独自コンポーネントの完全解析',
-    'Menu Control の全プロパティ編集',
     'Expression Parameters アセットの直接編集',
-    '複数 Avatar の同時比較',
     'Play Mode 上での実際の VRChat 動作シミュレーション',
     'VRChat SDK のアップロード検証と同等のチェック',
     'すべての予約パラメーター・特殊挙動の完全再現',
     'Undo / Redo の完全保証が必要な大規模編集',
-    '循環参照を含む Menu 構造の完全な正常表示',
   ],
 }
 
