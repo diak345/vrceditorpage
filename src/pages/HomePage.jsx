@@ -1,10 +1,42 @@
+import { overview, overviewImage } from '../content'
+
+const toPublicUrl = (fileName) =>
+  `${import.meta.env.BASE_URL}${fileName.replaceAll(' ', '%20')}`
+
 function HomePage() {
   return (
     <section className="panel">
       <h2>概要</h2>
       <p className="intro">
-        このページは VRCExEditor の使用方法ドキュメントです。上のタブから「機能」「できる事」「操作方法」「注意」を個別ページとして確認できます。
+        {overview.description}
       </p>
+      <p className="intro">{overview.purpose}</p>
+
+      <h3 className="subhead">対象フォルダ</h3>
+      <p className="intro">{overview.folder}</p>
+
+      <h3 className="subhead">主な Window</h3>
+      <ul>
+        {overview.windows.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+
+      <h3 className="subhead">このドキュメントで扱う範囲</h3>
+      <ul>
+        {overview.handledItems.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+
+      <p className="notice">
+        FX Animator の Layer / State / Transition Condition と AnimationClip 参照は、このドキュメントでは扱いません。
+      </p>
+
+      <figure className="media-frame">
+        <img src={toPublicUrl(overviewImage.file)} alt={overviewImage.alt} loading="lazy" />
+        <figcaption>Unity メニューから統合エディタ/Preview にアクセスできます。</figcaption>
+      </figure>
     </section>
   )
 }

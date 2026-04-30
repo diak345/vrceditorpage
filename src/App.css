@@ -1,5 +1,5 @@
 .page {
-  width: min(980px, 100% - 2rem);
+  width: min(1320px, 100% - 2rem);
   margin: 2rem auto 4rem;
   display: grid;
   gap: 1.25rem;
@@ -62,8 +62,8 @@
 
 .doc-shell {
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: 1rem;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 1.25rem;
   align-items: start;
 }
 
@@ -122,9 +122,24 @@
   color: #183b63;
 }
 
+.subhead {
+  margin: 1.4rem 0 0;
+  font-size: 1.05rem;
+  color: #244869;
+}
+
 .intro {
   margin-top: 0.9rem;
   line-height: 1.75;
+}
+
+.notice {
+  margin: 1rem 0 0;
+  border-left: 4px solid #d38b18;
+  background: #fff8e8;
+  padding: 0.75rem 0.9rem;
+  color: #5a3a0a;
+  line-height: 1.7;
 }
 
 .panel ul,
@@ -146,6 +161,37 @@
   color: #153154;
   border-radius: 6px;
   padding: 0.1rem 0.35rem;
+}
+
+.media-grid,
+.video-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.9rem;
+}
+
+.media-frame {
+  margin: 0.9rem 0 0;
+  border: 1px solid #d2dce8;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f9fcff;
+}
+
+.media-frame img,
+.media-frame video {
+  width: 100%;
+  display: block;
+  background: #12263c;
+}
+
+.media-frame figcaption {
+  padding: 0.55rem 0.65rem;
+  font-size: 0.85rem;
+  color: #2f4f6f;
+  border-top: 1px solid #d2dce8;
+  line-height: 1.5;
 }
 
 .caution {
