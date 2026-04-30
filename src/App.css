@@ -194,6 +194,88 @@
   line-height: 1.5;
 }
 
+.wide-media img {
+  max-height: 520px;
+  object-fit: contain;
+}
+
+.window-layout {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.window-column {
+  border: 1px solid #d2dce8;
+  border-radius: 8px;
+  background: #f9fcff;
+  padding: 1rem;
+}
+
+.window-column h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #183b63;
+}
+
+.window-column p {
+  margin: 0.65rem 0 0;
+  line-height: 1.7;
+}
+
+.operation-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.9rem;
+}
+
+.operation-list {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+}
+
+.operation-card {
+  border: 1px solid #d2dce8;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 1rem;
+}
+
+.operation-card h4 {
+  margin: 0;
+  color: #183b63;
+  font-size: 0.98rem;
+}
+
+.operation-card ol {
+  margin-top: 0.7rem;
+}
+
+.inline-table {
+  width: 100%;
+  margin-top: 0.9rem;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.inline-table th,
+.inline-table td {
+  border: 1px solid #d2dce8;
+  padding: 0.55rem 0.65rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.inline-table th {
+  background: #eef5ff;
+  color: #183b63;
+  font-weight: 700;
+}
+
 .caution {
   border-color: #f2d29a;
   background: linear-gradient(180deg, #fff6e8, #fffdf8);
@@ -219,6 +301,10 @@
   }
 
   .doc-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .window-layout {
     grid-template-columns: 1fr;
   }
 
