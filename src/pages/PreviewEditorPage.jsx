@@ -1,7 +1,4 @@
-import { previewEditor } from '../content'
-
-const toPublicUrl = (fileName) =>
-  `${import.meta.env.BASE_URL}${fileName.replaceAll(' ', '%20')}`
+import MediaViewer from '../components/MediaViewer'
 
 const editorBoxActions = [
   {
@@ -67,21 +64,17 @@ const radialActions = [
 function PreviewEditorPage() {
   return (
     <section className="panel">
-      <h2>{previewEditor.title}</h2>
+      <h2>Expression Menu Preview / Menu 編集</h2>
       <p className="intro">
         preview-editor の Window は、左側に `editorbox`、右側に Radial UI が表示される構成です。
         左で Control の編集を行い、右で VRChat に近い Pi / Radial UI として見た目や遷移を確認できます。
       </p>
 
       <h3 className="subhead">開き方</h3>
-      <p className="intro">{previewEditor.menuPath}</p>
+      <p className="intro">`Tools/VRChat/Expression Menu Preview`</p>
 
       <figure className="media-frame wide-media">
-        <img
-          src={toPublicUrl('files 588.jpg')}
-          alt="Expression Menu Preview の仮画像"
-          loading="lazy"
-        />
+        <MediaViewer fileName="files 588.jpg" alt="Expression Menu Preview の仮画像" />
         <figcaption>仮画像です。後で実際の preview-editor Window 画像へ置き換えてください。</figcaption>
       </figure>
 
@@ -168,10 +161,76 @@ function PreviewEditorPage() {
 
       <h3 className="subhead">編集時の注意</h3>
       <ul>
-        {previewEditor.notes.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
+        <li>Control 数は VRChat の仕様に合わせて最大 `8` 個までです。</li>
+        <li>編集内容はアセットに直接反映されるため、大きな変更前はバックアップやバージョン管理で差分確認できる状態を推奨します。</li>
       </ul>
+
+      <h3 className="subhead">操作動画</h3>
+      <div className="video-grid">
+        <figure className="media-frame">
+          <MediaViewer fileName="VRCExpressionRadialMenu.mp4" alt="Radial UI 表示動画" />
+          <figcaption>
+            <strong>Radial UI 表示</strong>
+            <span>VRChat に近い Pi / Radial UI で Menu の見た目を確認します。</span>
+          </figcaption>
+        </figure>
+
+        <figure className="media-frame">
+          <MediaViewer fileName="addnew-menu.mp4" alt="Control 追加動画" />
+          <figcaption>
+            <strong>Control 追加</strong>
+            <span>editorbox から新しい Control を追加します。</span>
+          </figcaption>
+        </figure>
+
+        <figure className="media-frame">
+          <MediaViewer fileName="addnew-param-values.mp4" alt="Parameter Value 設定動画" />
+          <figcaption>
+            <strong>Parameter / Value 設定</strong>
+            <span>Control の Parameter と Value を設定します。</span>
+          </figcaption>
+        </figure>
+
+        <figure className="media-frame">
+          <MediaViewer fileName="changenumber.mp4" alt="順番変更動画" />
+          <figcaption>
+            <strong>順番変更</strong>
+            <span>Control の表示順を変更し、Radial UI 側で確認します。</span>
+          </figcaption>
+        </figure>
+
+        <figure className="media-frame">
+          <MediaViewer fileName="createdmenupath.mp4" alt="Menu 階層作成動画" />
+          <figcaption>
+            <strong>Menu 階層作成</strong>
+            <span>SubMenu を使った Menu 階層を作成します。</span>
+          </figcaption>
+        </figure>
+
+        <figure className="media-frame">
+          <MediaViewer fileName="seticons.mp4" alt="Icon 設定動画" />
+          <figcaption>
+            <strong>Icon 設定</strong>
+            <span>Texture / Icon を設定して Radial UI の表示を確認します。</span>
+          </figcaption>
+        </figure>
+
+        <figure className="media-frame">
+          <MediaViewer fileName="rightclick-removeIcon.mp4" alt="右クリック操作動画" />
+          <figcaption>
+            <strong>右クリック操作</strong>
+            <span>Radial UI 上の右クリック操作で Icon 削除などを行います。</span>
+          </figcaption>
+        </figure>
+
+        <figure className="media-frame">
+          <MediaViewer fileName="out8.mp4" alt="Control 数確認動画" />
+          <figcaption>
+            <strong>Control 数の確認</strong>
+            <span>VRChat 仕様に合わせた最大 8 個の Control 制限を確認します。</span>
+          </figcaption>
+        </figure>
+      </div>
     </section>
   )
 }
