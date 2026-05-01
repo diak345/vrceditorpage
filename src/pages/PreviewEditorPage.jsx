@@ -74,7 +74,7 @@ function PreviewEditorPage() {
       <p className="intro">`Tools/VRChat/Expression Menu Preview`</p>
 
       <figure className="media-frame wide-media">
-        <MediaViewer fileName="files 588.jpg" alt="Expression Menu Preview の仮画像" />
+        <MediaViewer fileName="VRCExpressionMenuPreview.jpg" alt="Expression Menu Preview の仮画像" />
         <figcaption>仮画像です。後で実際の preview-editor Window 画像へ置き換えてください。</figcaption>
       </figure>
 
@@ -231,6 +231,27 @@ function PreviewEditorPage() {
           </figcaption>
         </figure>
       </div>
+
+
+
+       <figure className="media-frame">
+          <figcaption className="media-summary">
+            <h3>Parameter 追加と警告確認</h3>
+            <p>Parameter の追加後、警告表示で状態を確認します。</p>
+          </figcaption>
+          <MediaViewer fileName="addparams-and-check-warning.mp4" alt="Parameter 追加と警告確認動画" />
+          <span className="media-note">設定変更後に未定義参照や不整合がないかを確認できます。</span>
+        </figure>
+
+        <figure className="media-frame">
+          <figcaption className="media-summary">
+            <h3>警告表示の確認</h3>
+            <p>解析結果に基づく警告・注意項目を確認します。</p>
+          </figcaption>
+          <MediaViewer fileName="transferwarningview.mp4" alt="警告表示確認動画" />
+          <span className="media-note">警告内容をもとに問題箇所の修正優先度を判断できます。</span>
+        </figure>
+        
     </section>
   )
 }

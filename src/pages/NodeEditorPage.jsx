@@ -13,7 +13,7 @@ function NodeEditorPage() {
       <p className="intro">`Tools/VRChat/統合ノードエディタ (Phase 1)`</p>
 
       <figure className="media-frame wide-media">
-        <MediaViewer fileName="files 586.jpg" alt="統合ノードエディタの仮画像" />
+        <MediaViewer fileName="VRC-Node-Editor-window.jpg" alt="統合ノードエディタの仮画像" />
         <figcaption>Avatar RootにVRC AvatarDescriptorが設定されているPrefabを設定してください。</figcaption>
       </figure>
 
@@ -46,7 +46,7 @@ function NodeEditorPage() {
           </ul>
 
 
-                    
+
         </section>
       </div>
 
@@ -55,20 +55,25 @@ function NodeEditorPage() {
         左側の Menu ツリーでは、Expression Menu の階層を開きながら目的の Control を探します。
         検索や Parameter 付き項目のみ表示を使うことで、設定確認が必要な Menu を絞り込めます。
       </p>
+
+      <figure className="media-frame">
+        <MediaViewer fileName="searchname.mp4" alt="Avatar Root を指定する統合ノードエディタ画面" />
+        <figcaption>`Avatar Root` または `Descriptor` を指定して解析対象を選びます。</figcaption>
+      </figure>
       <div className="operation-list">
         <article className="operation-card">
           <h4>Root Menu 表示</h4>
           <ol>
-            <li>`Avatar Root` または `Descriptor` を指定します。</li>
-            <li>`再解析` を押して Root Menu を取得します。</li>
-            <li>左側の Menu ツリーに Root Menu が表示されます。</li>
+            <li>Avatar RootにVRC AvatarDescriptorが設定されているPrefabを設定します。</li>
+            <li>VRC AvatarDescriptorのメニューを解析し関連のMenuを取得します。</li>
+            <li>左側の Menu ツリーに該当のMenuが表示されます。</li>
           </ol>
         </article>
 
         <article className="operation-card">
           <h4>SubMenu の再帰表示</h4>
           <ol>
-            <li>Root Menu 配下の SubMenu を開きます。</li>
+            <li>VRC AvatarDescriptorの設定されてあるメニューからサブメニュー,button等全ての情報を階層別に取得します。</li>
             <li>SubMenu の中にある Menu も階層として表示されます。</li>
             <li>深い階層もツリー上で追跡できます。</li>
           </ol>
@@ -83,21 +88,15 @@ function NodeEditorPage() {
           </ol>
         </article>
 
-        <article className="operation-card">
-          <h4>Parameter 付き項目のみ表示</h4>
-          <ol>
-            <li>`Parameter付きのみ` を有効にします。</li>
-            <li>Parameter を使用している Control に絞って表示します。</li>
-            <li>Parameter 参照の確認や設定漏れ確認に使用します。</li>
-          </ol>
-        </article>
+
+
 
         <article className="operation-card">
-          <h4>全展開 / 全折りたたみ</h4>
+          <h4>VRCと同じUI(Radial Menu)と同期</h4>
           <ol>
-            <li>`全展開` で SubMenu を含む階層をまとめて開きます。</li>
-            <li>`全折りたたみ` でツリーを閉じ、Root 付近から確認し直します。</li>
-            <li>Menu 数が多い Avatar の確認時に使います。</li>
+            <li>2つのwindowで選択のメニューが同期されます。</li>
+            <li>一方のwindowで選択したメニューが他方のwindowにも反映されます。</li>
+            <li>編集・確認したい Menu を素早く探せます。</li>
           </ol>
         </article>
       </div>
@@ -126,14 +125,7 @@ function NodeEditorPage() {
           </ol>
         </article>
 
-        <article className="operation-card">
-          <h4>Menu Preview との選択同期</h4>
-          <ol>
-            <li>`Menu Previewを開く` で Preview Window を開きます。</li>
-            <li>統合ノードエディタで選択した Menu と Preview 側の表示を同期します。</li>
-            <li>編集・確認したい Menu を素早く探せます。</li>
-          </ol>
-        </article>
+
       </div>
 
       <h3 className="subhead">参考画像</h3>
@@ -155,44 +147,29 @@ function NodeEditorPage() {
       </div>
 
       <h3 className="subhead">操作動画</h3>
-      <div className="video-grid">
-
-
-
 
         <figure className="media-frame">
+          <figcaption className="media-summary">
+            <h3>Menu 検索</h3>
+            <p>Menu 名で目的の Control を素早く探します。</p>
+          </figcaption>
           <MediaViewer fileName="searchname.mp4" alt="Menu 検索動画" />
-          <figcaption>
-            <strong>Menu 検索</strong>
-            <span>Menu 名で目的の Control を素早く探します。</span>
-          </figcaption>
+          <span className="media-note">Menu 名で目的の Control を探して編集することができます。</span>
         </figure>
 
         <figure className="media-frame">
+          <figcaption className="media-summary">
+            <h3>Parameter 検索と適用</h3>
+            <p>Parameter を検索し、対象 Control の確認や設定に使います。</p>
+          </figcaption>
           <MediaViewer fileName="parametor-search-apply.mp4" alt="Parameter 検索と適用動画" />
-          <figcaption>
-            <strong>Parameter 検索と適用</strong>
-            <span>Parameter を検索し、対象 Control の確認や設定に使います。</span>
-          </figcaption>
+          <span className="media-note">Parameter の使用箇所を確認し、編集対象を素早く判断できます。</span>
         </figure>
 
-        <figure className="media-frame">
-          <MediaViewer fileName="addparams-and-check-warning.mp4" alt="Parameter 追加と警告確認動画" />
-          <figcaption>
-            <strong>Parameter 追加と警告確認</strong>
-            <span>Parameter の追加後、警告表示で状態を確認します。</span>
-          </figcaption>
-        </figure>
+       
 
-        <figure className="media-frame">
-          <MediaViewer fileName="transferwarningview.mp4" alt="警告表示確認動画" />
-          <figcaption>
-            <strong>警告表示の確認</strong>
-            <span>解析結果に基づく警告・注意項目を確認します。</span>
-          </figcaption>
-        </figure>
-        
-      </div>
+
+
     </section>
   )
 }
