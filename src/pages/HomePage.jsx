@@ -5,20 +5,21 @@ function HomePage() {
     <section className="panel">
       <h2>概要</h2>
       <p className="intro">
-        `VRCExEditor` は、Unity Editor 上で VRChat アバターの `Expression Menu` と `Expression Parameters` をまとめて確認・一部編集するための Editor 拡張です。
+        VRCExEditorは、Unity Editor 上で VRChat アバターの Expression Menuと Expression Parametersをまとめて確認・一部編集するための Editor 拡張です。
       </p>
       <p className="intro">
         主な目的は、アバターのメニュー構成、使用パラメーター、警告・注意項目を一覧化し、設定漏れや未使用項目を見つけやすくすることです。
       </p>
 
       <h3 className="subhead">対象フォルダ</h3>
-      <p className="intro">`Assets/yumeno/VRCExEditor/Editor`</p>
+      <p className="intro">Assets/yumeno/VRCExEditor/Editor</p>
 
       <h3 className="subhead">主な Window</h3>
       <ul>
-        <li>`Tools/VRChat/統合ノードエディタ (Phase 1)`</li>
-        <li>`Tools/VRChat/Expression Menu Preview`</li>
+        <li>Tools/VRChat/統合ノードエディタ (Phase 1)</li>
+        <li>Tools/VRChat/Expression Menu Preview</li>
       </ul>
+      <h4>Prameter Animator 整合性補助ツールは同封されていません。</h4>
 
       <figure className="media-frame">
         <MediaViewer

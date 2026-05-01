@@ -1,66 +1,5 @@
 import MediaViewer from '../components/MediaViewer'
 
-const editorBoxActions = [
-  {
-    title: 'Control 追加',
-    steps: [
-      '`EditorBox` 側で追加したい Menu を選択します。',
-      '`Control 追加` を押して空の Control を作成します。',
-      'Name / Type / Parameter / Value を設定します。',
-    ],
-  },
-  {
-    title: 'Control 削除',
-    steps: [
-      '削除したい Control を `EditorBox` で選択します。',
-      '`削除` を押して Control を削除します。',
-      '必要に応じて Preview 側で表示が消えているか確認します。',
-    ],
-  },
-  {
-    title: 'Control 並べ替え',
-    steps: [
-      '並べ替えたい Control を選択します。',
-      '上下移動ボタン、または並べ替え操作で表示順を変更します。',
-      'Radial UI 側で意図した位置に表示されるか確認します。',
-    ],
-  },
-  {
-    title: 'Control / Type / Parameter / Value 変更',
-    steps: [
-      'Control / Type / Parameter / Value は `editorbox` のテーブルに表示されます。',
-      '変更したい行のセルを選択し、各テーブル上で値を変更します。',
-      '変更後、右側の Radial UI と警告表示で反映結果を確認します。',
-    ],
-  },
-]
-
-const editorTableRows = [
-  { field: 'Control', description: 'Control 名を変更します。' },
-  { field: 'Type', description: 'Button / Toggle / SubMenu などの種類を変更します。' },
-  { field: 'Parameter', description: 'Control が使用する Parameter 名を変更します。' },
-  { field: 'Value', description: 'Parameter に渡す値を変更します。(int,floatのみ)' },
-]
-
-const radialActions = [
-  {
-    title: '右クリックでメニュー表示',
-    steps: [
-      'Radial UI 上の Control を右クリックします。',
-      '表示されたメニューから編集、削除、設定変更などの操作を選びます。',
-      'ダミー: 右クリックメニューの項目名は後で実際の表示に合わせて差し替えます。',
-    ],
-  },
-  {
-    title: 'Menu / Icon をドラッグ&ドロップで設定',
-    steps: [
-      'Project から `VRCExpressionsMenu` または `Texture2D` をドラッグします。',
-      '設定したい Control または Drop 領域にドロップします。',
-      'Menu は SubMenu、Texture2D は Icon として適用されます。',
-    ],
-  },
-]
-
 function PreviewEditorPage() {
   return (
     <section className="panel">
@@ -99,7 +38,7 @@ function PreviewEditorPage() {
           </p>
           <ul>
             <li>右クリックでメニュー表示</li>
-            <li>Menu / Icon をドラッグ&ドロップで設定可能</li>
+            <li>Menu / Icon をドラッグ&ドロップでsubMenu設定,Icon設定が可能</li>
             <li>VRC と同じ Radial UI による直感的な操作</li>
           </ul>
         </section>
@@ -111,34 +50,67 @@ function PreviewEditorPage() {
         Control の追加、削除、並べ替えを行い、Control / Type / Parameter / Value は各テーブル上で直接変更します。
       </p>
       <div className="operation-list">
-        {editorBoxActions.map((action) => (
-          <article className="operation-card" key={action.title}>
-            <h4>{action.title}</h4>
-            <ol>
-              {action.steps.map((step) => (
-                <li key={step}>{step}</li>
-              ))}
-            </ol>
-            {action.title === 'Control / Type / Parameter / Value 変更' && (
-              <table className="inline-table">
-                <thead>
-                  <tr>
-                    <th>項目</th>
-                    <th>変更内容</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {editorTableRows.map((row) => (
-                    <tr key={row.field}>
-                      <td>{row.field}</td>
-                      <td>{row.description}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            )}
-          </article>
-        ))}
+        <article className="operation-card">
+          <h4>Control 追加</h4>
+          <ol>
+            <li>`EditorBox` 側で追加したい Menu を選択します。</li>
+            <li>`Control 追加` を押して空の Control を作成します。</li>
+            <li>Name / Type / Parameter / Value を設定します。</li>
+          </ol>
+        </article>
+
+        <article className="operation-card">
+          <h4>Control 削除</h4>
+          <ol>
+            <li>削除したい Control を `EditorBox` で選択します。</li>
+            <li>`削除` を押して Control を削除します。</li>
+            <li>必要に応じて Preview 側で表示が消えているか確認します。</li>
+          </ol>
+        </article>
+
+        <article className="operation-card">
+          <h4>Control 並べ替え</h4>
+          <ol>
+            <li>並べ替えたい Control を選択します。</li>
+            <li>上下移動ボタン、または並べ替え操作で表示順を変更します。</li>
+            <li>Radial UI 側で意図した位置に表示されるか確認します。</li>
+          </ol>
+        </article>
+
+        <article className="operation-card">
+          <h4>Control / Type / Parameter / Value 変更</h4>
+          <ol>
+            <li>Control / Type / Parameter / Value は `editorbox` のテーブルに表示されます。</li>
+            <li>変更したい行のセルを選択し、各テーブル上で値を変更します。</li>
+            <li>変更後、右側の Radial UI と警告表示で反映結果を確認します。</li>
+          </ol>
+          <table className="inline-table">
+            <thead>
+              <tr>
+                <th>項目</th>
+                <th>変更内容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Control</td>
+                <td>Control 名を変更します。</td>
+              </tr>
+              <tr>
+                <td>Type</td>
+                <td>Button / Toggle / SubMenu などの種類を変更します。</td>
+              </tr>
+              <tr>
+                <td>Parameter</td>
+                <td>Control が使用する Parameter 名を変更します。</td>
+              </tr>
+              <tr>
+                <td>Value</td>
+                <td>Parameter に渡す値を変更します。(int,floatのみ)</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
       </div>
 
       <h3 className="subhead">Radial UI の操作方法</h3>
@@ -147,16 +119,23 @@ function PreviewEditorPage() {
         SubMenu を選択して階層を移動し、Back / Root 操作で階層を戻れるため、実際のメニュー遷移に近い感覚で確認できます。
       </p>
       <div className="operation-list">
-        {radialActions.map((action) => (
-          <article className="operation-card" key={action.title}>
-            <h4>{action.title}</h4>
-            <ol>
-              {action.steps.map((step) => (
-                <li key={step}>{step}</li>
-              ))}
-            </ol>
-          </article>
-        ))}
+        <article className="operation-card">
+          <h4>右クリックでメニュー表示</h4>
+          <ol>
+            <li>Radial UI 上の Control を右クリックします。</li>
+            <li>表示されたメニューから編集、削除、設定変更などの操作を選びます。</li>
+            <li>ダミー: 右クリックメニューの項目名は後で実際の表示に合わせて差し替えます。</li>
+          </ol>
+        </article>
+
+        <article className="operation-card">
+          <h4>Menu / Icon をドラッグ&ドロップで設定</h4>
+          <ol>
+            <li>Project から `VRCExpressionsMenu` または `Texture2D` をドラッグします。</li>
+            <li>設定したい Control または Drop 領域にドロップします。</li>
+            <li>Menu は SubMenu、Texture2D は Icon として適用されます。</li>
+          </ol>
+        </article>
       </div>
 
       <h3 className="subhead">編集時の注意</h3>
@@ -166,91 +145,101 @@ function PreviewEditorPage() {
       </ul>
 
       <h3 className="subhead">操作動画</h3>
-      <div className="video-grid">
-        <figure className="media-frame">
-          <MediaViewer fileName="VRCExpressionRadialMenu.mp4" alt="Radial UI 表示動画" />
-          <figcaption>
-            <strong>Radial UI 表示</strong>
-            <span>VRChat に近い Pi / Radial UI で Menu の見た目を確認します。</span>
-          </figcaption>
-        </figure>
 
         <figure className="media-frame">
-          <MediaViewer fileName="addnew-menu.mp4" alt="Control 追加動画" />
-          <figcaption>
-            <strong>Control 追加</strong>
-            <span>editorbox から新しい Control を追加します。</span>
-          </figcaption>
-        </figure>
-
-        <figure className="media-frame">
-          <MediaViewer fileName="addnew-param-values.mp4" alt="Parameter Value 設定動画" />
-          <figcaption>
-            <strong>Parameter / Value 設定</strong>
-            <span>Control の Parameter と Value を設定します。</span>
-          </figcaption>
-        </figure>
-
-        <figure className="media-frame">
-          <MediaViewer fileName="changenumber.mp4" alt="順番変更動画" />
-          <figcaption>
-            <strong>順番変更</strong>
-            <span>Control の表示順を変更し、Radial UI 側で確認します。</span>
-          </figcaption>
-        </figure>
-
-        <figure className="media-frame">
-          <MediaViewer fileName="createdmenupath.mp4" alt="Menu 階層作成動画" />
-          <figcaption>
-            <strong>Menu 階層作成</strong>
-            <span>SubMenu を使った Menu 階層を作成します。</span>
-          </figcaption>
-        </figure>
-
-        <figure className="media-frame">
-          <MediaViewer fileName="seticons.mp4" alt="Icon 設定動画" />
-          <figcaption>
-            <strong>Icon 設定</strong>
-            <span>Texture / Icon を設定して Radial UI の表示を確認します。</span>
-          </figcaption>
-        </figure>
-
-        <figure className="media-frame">
-          <MediaViewer fileName="rightclick-removeIcon.mp4" alt="右クリック操作動画" />
-          <figcaption>
-            <strong>右クリック操作</strong>
-            <span>Radial UI 上の右クリック操作で Icon 削除などを行います。</span>
-          </figcaption>
-        </figure>
-
-        <figure className="media-frame">
-          <MediaViewer fileName="out8.mp4" alt="Control 数確認動画" />
-          <figcaption>
-            <strong>Control 数の確認</strong>
-            <span>VRChat 仕様に合わせた最大 8 個の Control 制限を確認します。</span>
-          </figcaption>
-        </figure>
-      </div>
-
-
-
-       <figure className="media-frame">
           <figcaption className="media-summary">
-            <h3>Parameter 追加と警告確認</h3>
-            <p>Parameter の追加後、警告表示で状態を確認します。</p>
+            <h3>Radial UI上で操作</h3>
+            <p>VRChat に近い Pi / Radial UI で Menu の見た目を確認します。</p>
           </figcaption>
-          <MediaViewer fileName="addparams-and-check-warning.mp4" alt="Parameter 追加と警告確認動画" />
-          <span className="media-note">設定変更後に未定義参照や不整合がないかを確認できます。</span>
+          <MediaViewer fileName="VRCExpressionRadialMenu.mp4" alt="Radial UI 表示動画" />
+          <span className="media-note">Radial UI 表示の確認ができます。</span>
         </figure>
 
+
+                <figure className="media-frame">
+          <figcaption className="media-summary">
+            <h3>name/Parameter / Value 設定</h3>
+            <p>Controlのname,parametor,value,typeを変更できます。</p>
+          </figcaption>
+          <MediaViewer fileName="addnew-param-values.mp4" alt="Parameter Value 設定動画" />
+          <span className="media-note">Parametorが存在しない場合は下のWarningsに表示されます。</span>
+        </figure>
+
+
+        
         <figure className="media-frame">
+          <figcaption className="media-summary">
+            <h3>順番変更</h3>
+            <p>Controlの表示順を変更し、Radial UI 側で確認します。</p>
+          </figcaption>
+          <MediaViewer fileName="changenumber.mp4" alt="順番変更動画" />
+          <span className="media-note">Control の並び替えができます。</span>
+        </figure>
+
+
+                <figure className="media-frame">
           <figcaption className="media-summary">
             <h3>警告表示の確認</h3>
             <p>解析結果に基づく警告・注意項目を確認します。</p>
           </figcaption>
           <MediaViewer fileName="transferwarningview.mp4" alt="警告表示確認動画" />
-          <span className="media-note">警告内容をもとに問題箇所の修正優先度を判断できます。</span>
+          <span className="media-note">警告内容をクリックすることで該当のメニューに移動できます。</span>
         </figure>
+
+
+        <figure className="media-frame">
+          <figcaption className="media-summary">
+            <h3>Icon,submeneの設定</h3>
+            <p>Texture / IconまたはMenuをDrag & Dropで設定できます。</p>
+          </figcaption>
+          <MediaViewer fileName="seticons.mp4" alt="Icon 設定動画" />
+          <span className="media-note">D&DでIconまたはsubMenuを設定できます。</span>
+        </figure>
+
+
+
+        <figure className="media-frame">
+          <figcaption className="media-summary">
+            <h3>新規サブメニューの追加</h3>
+            <p>右クリックメニューから新規サブメニューを追加します。</p>
+          </figcaption>
+          <MediaViewer fileName="addnew-menu.mp4" alt="Control 追加動画" />
+          <span className="media-note">サブメニューはこのプラグインYumeno/Menu/に追加されます。</span>
+        </figure>
+
+
+
+
+        <figure className="media-frame">
+          <figcaption className="media-summary">
+            <h3>SubMenu作成場所</h3>
+            <p>右クリックメニューを使ったSubMenuはyumeno/Menuフォルダーに作成されます。</p>
+          </figcaption>
+          <MediaViewer fileName="createdmenupath.mp4" alt="Menu 階層作成動画" />
+          <span className="media-note">PingボタンからMenuの場所を確認できます。</span>
+        </figure>
+
+
+
+        <figure className="media-frame">
+          <figcaption className="media-summary">
+            <h3>iconの削除</h3>
+            <p>Radial UI上の右クリック操作で Icon 削除、ping,subMenuの追加ができます。</p>
+          </figcaption>
+          <MediaViewer fileName="rightclick-removeIcon.mp4" alt="右クリック操作動画" />
+          <span className="media-note">右クリック操作でicon削除ができます。</span>
+        </figure>
+
+       <figure className="media-frame">
+          <figcaption className="media-summary">
+            <h3>警告の確認</h3>
+            <p>警告がある場合、該当の項目が表示され、クリックすることで該当のメニューに移動できます。</p>
+          </figcaption>
+          <MediaViewer fileName="addparams-and-check-warning.mp4" alt="Parameter 追加と警告確認動画" />
+          <span className="media-note">ボタンクリックで該当項目に移動できます。</span>
+        </figure>
+
+
         
     </section>
   )
